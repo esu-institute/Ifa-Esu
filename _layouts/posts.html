@@ -1,0 +1,24 @@
+---
+layout: default
+---
+<style>
+  .article{width:min(940px,92%);margin:auto;padding:70px 0}
+  .article h1{font-family:var(--display);font-size:clamp(42px,6vw,70px);line-height:1.03;letter-spacing:-.06em;margin:0 0 25px}
+  .article-hero{aspect-ratio:1.8;background:#20221f;display:grid;place-items:center;color:#eee8dc;font-family:var(--display);font-size:60px;margin:35px 0 8px}
+  .article-body{width:min(720px,100%);margin:50px auto;font-family:var(--serif);font-size:18px;line-height:1.75}
+  .tags{border-top:1px solid var(--line);padding-top:20px;font-size:9px;font-weight:700;letter-spacing:.1em;color:var(--muted)}
+</style>
+<div class="article">
+  <div class="kicker">{{ page.category }}</div>
+  <h1>{{ page.title }}</h1>
+  <p class="dek" style="font-size:20px">{{ page.dek }}</p>
+  
+  <div class="article-hero">E.S.U.</div>
+  <div class="meta"><span>IFÁ RESEARCH INSTITUTE OF E.S.U.</span><span>{{ page.date | date: "%d %B %Y" | upcase }}</span></div>
+  
+  <div class="article-body">
+    {{ content }}
+  </div>
+  
+  <div class="tags">TAGS · {{ page.tags | join: " · " | upcase }}</div>
+</div>
