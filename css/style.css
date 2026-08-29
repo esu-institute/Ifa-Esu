@@ -477,3 +477,24 @@ button, input {
   .archive-list em { display: none; }
   .footer-bottom { flex-direction: column; gap: 8px; }
 }
+/* Force images to display and hide placeholder graphics */
+.hero-image img,
+.card-art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.hero-image:before,
+.hero-image .sigil,
+.hero-image .line,
+.card-art:before,
+.card-art:after,
+.card-art span {
+  display: none !important;
+}
