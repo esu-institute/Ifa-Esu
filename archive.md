@@ -1,0 +1,22 @@
+---
+layout: default
+title: "Research Archive"
+permalink: /archive/
+---
+
+<section class="band">
+  <div class="section-head">
+    <h2>Complete Research Archive</h2>
+    <p>All monographs, linguistic analyses, and field notes.</p>
+  </div>
+  
+  <div class="archive-list" style="margin-top: 2rem;">
+    {% for post in site.posts %}
+      <div class="archive-item" style="padding: 1.5rem 0; border-bottom: 1px solid var(--rule-color, #eee);">
+        <div class="kicker" style="margin-bottom: 0.25rem;">{{ post.category }} · {{ post.date | date: "%d %B %Y" | upcase }}</div>
+        <h3 style="margin: 0 0 0.5rem 0;"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+        <p style="margin: 0; color: var(--text-muted);">{{ post.dek }}</p>
+      </div>
+    {% endfor %}
+  </div>
+</section>
