@@ -4,6 +4,7 @@ title: About
 permalink: /about
 ---
 
+
 # About the Institute
 
 The **Ifá Research Institute of E.S.U.** is a public home for serious research into living knowledge. 
