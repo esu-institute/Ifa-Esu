@@ -1,0 +1,94 @@
+---
+layout: default
+---
+<section class="hero">
+  <div class="hero-grid">
+    <!-- Featured Article (Pulls the absolute latest post) -->
+    {% assign featured = site.posts.first %}
+    <article class="feature">
+      <div class="kicker">{{ featured.category | default: "FEATURED RESEARCH" }}</div>
+      <h1>{{ featured.title }}</h1>
+      <p class="dek">{{ featured.dek }}</p>
+      <div class="hero-image">
+        <div class="sigil">E.S.U.</div>
+        <div class="line l1"></div>
+        <div class="line l2"></div>
+      </div>
+      <div class="caption">Institute visual study · archival form and living transmission</div>
+      <div class="meta">
+        <span>IFÁ RESEARCH INSTITUTE OF E.S.U.</span>
+        <span>{{ featured.date | date: "%d %B %Y" | upcase }}</span>
+      </div>
+      <a class="read" href="{{ featured.url | relative_url }}">READ THE STUDY →</a>
+    </article>
+
+    <!-- Sidebar Section -->
+    <aside class="side">
+      <div class="kicker">NEW RESEARCH</div>
+      {% for post in site.posts limit:2 offset:1 %}
+        <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+        <p>{{ post.dek }}</p>
+        <div class="meta">
+          <span>{{ post.category }}</span>
+          <span>FIELD NOTES</span>
+        </div>
+        {% unless forloop.last %}<div class="rule"></div>{% endunless %}
+      {% endfor %}
+
+      <div class="rule"></div>
+      <div class="kicker">THE INSTITUTE</div>
+      <h2>A public home for serious research into living knowledge.</h2>
+      <p>The Institute preserves studies, source notes, essays, interviews, linguistic investigations, and historical research.</p>
+      <a class="read" href="{{ '/about' | relative_url }}">ABOUT THE INSTITUTE →</a>
+    </aside>
+  </div>
+</section>
+
+<!-- Latest Research Grid Cards -->
+<section class="band">
+  <div class="section-head">
+    <h2>Latest Research</h2>
+    <a href="{{ '/archive' | relative_url }}">VIEW ALL →</a>
+  </div>
+  <div class="cards">
+    {% for post in site.posts limit:3 %}
+      <article class="card">
+        <a href="{{ post.url | relative_url }}">
+          <div class="card-art art{{ forloop.index }}"><span>0{{ forloop.index }}</span></div>
+        </a>
+        <div class="kicker">{{ post.category }}</div>
+        <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+        <p>{{ post.dek }}</p>
+        <div class="meta">
+          <span>{{ post.tags.first }}</span>
+          <span>ESSAY</span>
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- Foundational Quote Block -->
+<section class="quote">
+  <p>“The purpose of an archive is not to make knowledge dead. It is to give memory somewhere to stand.”</p>
+  <small>FOUNDATIONAL NOTE · IFÁ RESEARCH INSTITUTE OF E.S.U.</small>
+</section>
+
+<!-- Dynamic Archive Preview -->
+<section class="archive-preview">
+  <div class="archive-intro">
+    <div class="kicker">THE RESEARCH ARCHIVE</div>
+    <h2>A living index of studies, sources, and questions.</h2>
+    <p>Research is organized by subject without pretending that the subjects exist in isolation.</p>
+    <a class="read" href="{{ '/archive' | relative_url }}">OPEN ARCHIVE →</a>
+  </div>
+  <div class="archive-list">
+    {% for post in site.posts %}
+      <a href="{{ post.url | relative_url }}">
+        <span>{{ post.category }}</span>
+        <strong>{{ post.title }}</strong>
+        <em>READ →</em>
+      </a>
+    {% endfor %}
+  </div>
+</section>
