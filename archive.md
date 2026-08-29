@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Research Archive"
-permalink: /archive/
+permalink: /archive
 ---
 
 <section class="band">
